@@ -5,10 +5,8 @@ function App() {
   const { theme } = useTheme();
 
   return (
-    <main className={`switch-page ${theme === "dark" ? "dark" : "light"}`}>
-      <div className="switch-wrapper">
-        <ToggleThemeButton />
-      </div>
+    <main className={`switch-page ${theme}`}>
+      <ToggleThemeButton />
     </main>
   );
 }

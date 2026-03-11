@@ -5,10 +5,10 @@ function ToggleThemeButton() {
 
   return (
     <button
-      className="switch-hitbox"
+      type="button"
+      className="switch-button"
       onClick={toggleTheme}
       aria-label="Bytt tema"
-      title="Bytt tema"
     />
   );
 }

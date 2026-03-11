@@ -9,23 +9,16 @@ body,
   min-height: 100%;
 }
 
-body {
-  font-family: Inter, Arial, sans-serif;
-}
-
 .switch-page {
+  position: relative;
   min-height: 100vh;
-  background-color: #f5f5f5;
-  display: grid;
-  place-items: center;
-  transition: background-color 0.3s ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .switch-page.light {
   background-image: url("/switch.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .switch-page.dark {
@@ -33,27 +26,19 @@ body {
   background-color: #1a1a1a;
 }
 
-.switch-wrapper {
-  position: relative;
-  width: min(90vw, 700px);
-  aspect-ratio: 16 / 9;
-}
-
-.switch-hitbox {
+.switch-button {
   position: absolute;
-  right: 15.5%;
-  top: 46.5%;
-  width: 3.2%;
-  height: 11%;
+  left: 79.9%;
+  top: 55%;
+  width: 34px;
+  height: 92px;
   transform: translate(-50%, -50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
   padding: 0;
-}
-
-.switch-hitbox:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 4px;
-  border-radius: 8px;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
