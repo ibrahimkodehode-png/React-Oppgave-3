@@ -1,3 +1,7 @@
+:root {
+  --switch-left: 79.9%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,6 +11,7 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
+  font-family: Inter, Arial, sans-serif;
 }
 
 .switch-page {
@@ -16,26 +21,81 @@ body,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* LIGHT MODE */
+/* Light mode */
 .switch-page.light {
+  background-color: #f5f5f5;
   background-image: url("/switch.jpg");
+  color: #222222;
 }
 
-/* DARK MODE */
+/* Dark mode */
 .switch-page.dark {
+  background-color: #1a1a1a;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
     url("/switch.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: #f5f5f5;
 }
 
+/* Info card */
+.theme-info {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  z-index: 3;
+  max-width: 460px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(245, 245, 245, 0.88);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.switch-page.dark .theme-info {
+  background: rgba(26, 26, 26, 0.88);
+}
+
+.theme-kicker {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.theme-title {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+/* Visible toggle button */
+.theme-toggle-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.94;
+}
+
+/* Invisible clickable area on the real switch */
 .switch-button {
   position: absolute;
-  left: 79.9%;
+  left: var(--switch-left);
   top: 55%;
   width: 34px;
   height: 92px;
@@ -48,19 +108,48 @@ body,
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  z-index: 3;
+  z-index: 4;
 }
 
 .bulb-image {
   position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translateX(-50%) rotate(180deg);
-  width: min(16vw, 140px);
-  height: auto;
-  object-fit: contain;
+  left: var(--switch-left);
+  top: 26%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 380px;
+  object-fit: cover;
   z-index: 2;
   border-radius: 18px;
   opacity: 0.95;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --switch-left: 80.5%;
+  }
+
+  .theme-info {
+    left: 16px;
+    right: 16px;
+    top: 16px;
+    max-width: none;
+    padding: 18px;
+  }
+
+  .theme-title {
+    font-size: 1.8rem;
+  }
+
+  .switch-button {
+    width: 28px;
+    height: 76px;
+    top: 54%;
+  }
+
+  .bulb-image {
+    top: 24%;
+    width: min(20vw, 90px);
+  }
 }

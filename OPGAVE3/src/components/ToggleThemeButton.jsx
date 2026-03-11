@@ -1,15 +1,20 @@
 import { useTheme } from "../context/themeProvider";
 
 function ToggleThemeButton() {
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme, colors } = useTheme();
 
   return (
     <button
       type="button"
-      className="switch-button"
+      className="theme-toggle-btn"
       onClick={toggleTheme}
-      aria-label="Bytt tema"
-    />
+      style={{
+        backgroundColor: colors.buttonBackground,
+        color: colors.buttonText,
+      }}
+    >
+      {theme === "light" ? "Bytt til dark mode" : "Bytt til light mode"}
+    </button>
   );
 }
 
