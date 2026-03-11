@@ -12,18 +12,25 @@ body,
 .switch-page {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+/* LIGHT MODE */
 .switch-page.light {
   background-image: url("/switch.jpg");
 }
 
+/* DARK MODE */
 .switch-page.dark {
-  background-image: none;
-  background-color: #1a1a1a;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+    url("/switch.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .switch-button {
@@ -41,4 +48,19 @@ body,
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
+  z-index: 3;
+}
+
+.bulb-image {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%) rotate(180deg);
+  width: min(16vw, 140px);
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  border-radius: 18px;
+  opacity: 0.95;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }

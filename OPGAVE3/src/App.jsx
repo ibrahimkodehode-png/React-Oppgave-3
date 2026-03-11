@@ -7,6 +7,10 @@ function App() {
   return (
     <main className={`switch-page ${theme}`}>
       <ToggleThemeButton />
+
+      {theme === "dark" && (
+        <img className="bulb-image" src="/bulb.jpg" alt="Light bulb" />
+      )}
     </main>
   );
 }
